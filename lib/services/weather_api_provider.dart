@@ -8,7 +8,7 @@ import 'package:stream_tutorial_dec_2020/model/weather.dart';
 class WeatherApiProvider {
   Future<WeatherItemModel> fetchWeatherData({double lat, double long}) async {
     String api =
-        "http://api.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=ef7492ff156e3449f868bf20f5bf097a";
+        "http://api.openweathermap.org/data/2.5/weather?lat=$lat&lon=$long&appid=ef7492ff156e3449f868bf20f5bf097a";
 
     try {
       http.Response response = await http.get(api);

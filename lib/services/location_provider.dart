@@ -12,6 +12,7 @@ class LocationProvider {
       LocationPermission permission = await Geolocator.requestPermission();
       if (permission == LocationPermission.whileInUse) {
         Position position = await Geolocator.getCurrentPosition();
+
         return position;
       }
     }

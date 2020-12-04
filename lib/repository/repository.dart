@@ -9,9 +9,13 @@ class WeatherRepository {
   final weatherApiProvider = WeatherApiProvider();
 
   Future<Position> getCurrentLocation() async {
-    position = await _locationProvider.fetchLocation();
+    return position = await _locationProvider.fetchLocation();
   }
 
-  Future<WeatherItemModel> fetchWeatherData() => weatherApiProvider
-      .fetchWeatherData(lat: position.latitude, long: position.longitude);
+  Future<WeatherItemModel> fetchWeatherData() {
+    getCurrentLocation();
+
+    return weatherApiProvider.fetchWeatherData(
+        lat: position.latitude, long: position.longitude);
+  }
 }
