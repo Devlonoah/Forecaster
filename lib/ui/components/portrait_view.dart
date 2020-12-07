@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:stream_tutorial_dec_2020/blocs/weather_blocs.dart';
+import 'package:stream_tutorial_dec_2020/constants.dart';
 import 'package:stream_tutorial_dec_2020/model/weatherItemModel.dart';
 import 'package:stream_tutorial_dec_2020/ui/widget/weather_forecast_card.dart';
 
@@ -42,8 +43,8 @@ Column buildPortrait({WeatherBloc bloc, BuildContext context}) {
                     children: <Widget>[
                       Text(
                         '${data.temp.toStringAsFixed(0)}°c',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 60),
+                        style: valueTextStyle.copyWith(
+                            fontSize: 50, color: Colors.black),
                       ),
                     ],
                   ),
@@ -67,11 +68,12 @@ Column buildPortrait({WeatherBloc bloc, BuildContext context}) {
                       Text(
                         data.country,
                         // data == null ? 'country' : data.country,
-                        style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w400,
-                            color: Colors.grey),
+                        style: valueTextStyle,
                       ),
+                      conditionAndValue(
+                          condition: data.description, value: data.windSpeed),
+                      conditionAndValue(
+                          condition: data.description, value: data.windSpeed),
                       conditionAndValue(
                           condition: data.description, value: data.windSpeed),
                       RaisedButton(

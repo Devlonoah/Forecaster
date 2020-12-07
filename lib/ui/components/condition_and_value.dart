@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stream_tutorial_dec_2020/constants.dart';
 
 Container conditionAndValue({String condition, double value}) {
   return Container(
@@ -14,17 +15,11 @@ Container conditionAndValue({String condition, double value}) {
             children: [
               Text(
                 'Cloud Description',
-                style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w700,
-                    fontSize: 17),
+                style: headerTextStyle,
               ),
               Text(
                 condition[0].toUpperCase() + condition.substring(1),
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w800,
-                ),
+                style: valueTextStyle,
               ),
             ],
           )),
@@ -42,18 +37,11 @@ Container conditionAndValue({String condition, double value}) {
               children: [
                 Text(
                   'Wind Speed',
-                  style: TextStyle(
-                    fontSize: 17,
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w700,
-                  ),
+                  style: headerTextStyle,
                 ),
                 Text(
                   value.toStringAsFixed(0),
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w800,
-                  ),
+                  style: valueTextStyle.copyWith(fontSize: 30),
                 ),
               ],
             ),
