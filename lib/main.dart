@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:stream_tutorial_dec_2020/blocs/weather_blocs.dart';
-import 'ui/weather_dashboard.dart';
 
-// import 'package:syncfusion_flutter_charts/charts.dart';
+import 'ui/weather_dashboard.dart';
 
 void main() {
   runApp(MyApp());

@@ -4,7 +4,7 @@ import 'package:stream_tutorial_dec_2020/constants.dart';
 Container conditionAndValue({String condition, double value}) {
   return Container(
     height: 130,
-    color: Colors.grey[100].withOpacity(0.3),
+    color: Colors.grey.withOpacity(0.3),
     width: double.infinity,
     child: Row(
       children: [
@@ -18,7 +18,9 @@ Container conditionAndValue({String condition, double value}) {
                 style: headerTextStyle,
               ),
               Text(
-                condition[0].toUpperCase() + condition.substring(1),
+                condition == null
+                    ? 'null'
+                    : condition[0].toUpperCase() + condition.substring(1),
                 style: valueTextStyle,
               ),
             ],
@@ -40,7 +42,7 @@ Container conditionAndValue({String condition, double value}) {
                   style: headerTextStyle,
                 ),
                 Text(
-                  value.toStringAsFixed(0),
+                  value == null ? 'null' : value.toStringAsFixed(0),
                   style: valueTextStyle.copyWith(fontSize: 30),
                 ),
               ],

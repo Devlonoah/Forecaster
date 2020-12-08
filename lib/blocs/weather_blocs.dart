@@ -1,16 +1,15 @@
 import 'dart:async';
 
 import 'package:rxdart/subjects.dart';
-import 'package:stream_tutorial_dec_2020/model/weatherItemModel.dart';
-
+import 'package:stream_tutorial_dec_2020/model/weather_response.dart';
 import 'package:stream_tutorial_dec_2020/repository/repository.dart';
 
 class WeatherBloc {
-  String appBar = 'Weather AP';
+  String appBar = 'Prewer';
   final _repository = WeatherRepository();
 
-  final _weatherFetcher = PublishSubject<WeatherItemModel>();
-  Stream<WeatherItemModel> get weatherData => _weatherFetcher.stream;
+  final _weatherFetcher = PublishSubject<WeatherResponse>();
+  Stream<WeatherResponse> get weatherData => _weatherFetcher.stream;
 
 //stream for input @ search
 //TODO: Future(Implementation) Add textField to implement this in the UI
@@ -29,10 +28,9 @@ class WeatherBloc {
   // );
 
   Future fetchWeatherData() async {
-    WeatherItemModel weatherItemModelData =
-        await _repository.fetchWeatherData();
-
-    _weatherFetcher.sink.add(weatherItemModelData);
+    WeatherResponse weatherResponse = await _repository.fetchWeatherData();
+    print(weatherResponse);
+    _weatherFetcher.sink.add(weatherResponse);
   }
 
   void dispose() {

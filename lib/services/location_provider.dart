@@ -2,6 +2,7 @@ import 'package:geolocator/geolocator.dart';
 
 class LocationProvider {
   Future<Position> fetchLocation() async {
+    Position positionData;
     try {
       bool _locationPermission = await Geolocator.isLocationServiceEnabled();
 
@@ -14,12 +15,14 @@ class LocationProvider {
         if (permission == LocationPermission.whileInUse ||
             permission == LocationPermission.always) {
           Position position = await Geolocator.getCurrentPosition();
-
+          positionData = position;
           return position;
         }
       }
     } catch (e) {
       print('location provider error: $e');
     }
+
+    return positionData;
   }
 }

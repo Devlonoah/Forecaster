@@ -3,11 +3,10 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class WeatherForecastCard extends StatelessWidget {
   const WeatherForecastCard({
-    Key key,
     this.title,
     this.icon,
     this.value,
-  }) : super(key: key);
+  });
 
   final String title;
   final String icon;

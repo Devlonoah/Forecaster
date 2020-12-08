@@ -11,3 +11,15 @@ final headerTextStyle = TextStyle(
     fontWeight: FontWeight.w400,
     color: Colors.blue,
     fontFamily: 'callofduty');
+
+//...............
+
+class Pallete {
+  static final swatchA = Color(0xFF191919);
+  static final swatchB = Color(0xFFa10600);
+  static final swatchC = Color(0xFF5b5b5b);
+  static final swatchD = Color(0xFFcccccc);
+  static final swatchE = Color(0xFF5e0b05);
+  static final swatchF = Color(0xFFca0700);
+  static final swatchG = Color(0xFF9d9d9d);
+}

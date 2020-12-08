@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:stream_tutorial_dec_2020/ui/widget/weather_forecast_card.dart';
+
+import 'weather_forecast_card.dart';
 
 Widget buildLandscape() {
   return Row(
@@ -51,7 +52,11 @@ Widget buildLandscape() {
                     itemBuilder: (context, index) {
                       return Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: WeatherForecastCard(),
+                        child: WeatherForecastCard(
+                          icon: 'icon',
+                          title: 'title',
+                          value: 20.0,
+                        ),
                       );
                     }),
               ),
@@ -63,7 +68,6 @@ Widget buildLandscape() {
 
                   // Provider.of<WeatherBloc>(context, listen: false)
                   //     .fetchWeatherData();
-                  ;
                 },
               )
             ],

@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
-import 'package:stream_tutorial_dec_2020/blocs/weather_blocs.dart';
-import 'package:stream_tutorial_dec_2020/model/weatherItemModel.dart';
-import 'package:stream_tutorial_dec_2020/services/weather_api_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:stream_tutorial_dec_2020/blocs/weather_blocs.dart';
+import 'package:stream_tutorial_dec_2020/constants.dart';
+import 'package:stream_tutorial_dec_2020/services/weather_api_provider.dart';
 
 import 'components/landscape_view.dart';
 import 'components/portrait_view.dart';
@@ -34,9 +32,10 @@ class _FirstScreenState extends State<FirstScreen> {
   Widget build(BuildContext context) {
     var bloc = Provider.of<WeatherBloc>(context);
     return Scaffold(
+      backgroundColor: Pallete.swatchB,
       appBar: AppBar(
-        brightness: Brightness.light,
-        backgroundColor: Colors.white,
+        brightness: Brightness.dark,
+        backgroundColor: Pallete.swatchB,
         title: Text(
           Provider.of<WeatherBloc>(context, listen: true).appBar,
           style: TextStyle(
@@ -52,7 +51,9 @@ class _FirstScreenState extends State<FirstScreen> {
                 color: Colors.grey.withOpacity(0.1), shape: BoxShape.circle),
             child: IconButton(
               color: Colors.black,
-              icon: Icon(Icons.navigation),
+              icon: Icon(
+                Icons.location_searching,
+              ),
               onPressed: () {
                 Provider.of<WeatherBloc>(context, listen: false)
                     .fetchWeatherData();
