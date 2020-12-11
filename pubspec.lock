@@ -43,6 +43,34 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.15.0-nullsafety.5"
+  connectivity:
+    dependency: "direct main"
+    description:
+      name: connectivity
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.2"
+  connectivity_for_web:
+    dependency: transitive
+    description:
+      name: connectivity_for_web
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.3.1+4"
+  connectivity_macos:
+    dependency: transitive
+    description:
+      name: connectivity_macos
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.0+7"
+  connectivity_platform_interface:
+    dependency: transitive
+    description:
+      name: connectivity_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.6"
   cupertino_icons:
     dependency: "direct main"
     description:
@@ -74,6 +102,11 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_web_plugins:
+    dependency: transitive
+    description: flutter
+    source: sdk
+    version: "0.0.0"
   font_awesome_flutter:
     dependency: "direct main"
     description:
@@ -95,6 +128,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.8"
+  get_it:
+    dependency: "direct main"
+    description:
+      name: get_it
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "5.0.3"
   http:
     dependency: "direct main"
     description:
@@ -110,12 +150,19 @@ packages:
     source: hosted
     version: "3.1.4"
   intl:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: intl
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.16.1"
+  js:
+    dependency: transitive
+    description:
+      name: js
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.6.3-nullsafety.3"
   matcher:
     dependency: transitive
     description:
@@ -249,4 +296,4 @@ packages:
     version: "2.1.0-nullsafety.5"
 sdks:
   dart: ">=2.12.0-0.0 <3.0.0"
-  flutter: ">=1.16.0"
+  flutter: ">=1.16.0 <2.0.0"

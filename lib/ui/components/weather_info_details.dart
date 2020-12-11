@@ -1,18 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:stream_tutorial_dec_2020/model/weather_response.dart';
 import 'package:stream_tutorial_dec_2020/ui/components/text_with_value.dart';
 
-Column weatherInfoDetails() {
+Column weatherInfoDetails(WeatherResponse data) {
+  final dateFormat = DateFormat('hh:mm:ss');
+  var sunriseDate =
+      DateTime.fromMillisecondsSinceEpoch(data.sys.sunrise * 1000);
+  var sunset = DateTime.fromMillisecondsSinceEpoch(data.sys.sunset * 1000);
+
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       TextWithValue(
         title: 'Sunset',
-        value: 'hello',
+        value: dateFormat.format(sunset),
       ),
-      TextWithValue(
-        title: 'Sunrise',
-        value: 'hello',
-      ),
+      TextWithValue(title: 'Sunrise', value: dateFormat.format(sunriseDate)),
 //      Row(
 //        mainAxisAlignment: MainAxisAlignment.spaceBetween,
 //        children: [
@@ -28,11 +32,11 @@ Column weatherInfoDetails() {
 //      ),
       TextWithValue(
         title: 'Humidity',
-        value: '10',
+        value: data.main.humidity.toStringAsFixed(1),
       ),
       TextWithValue(
         title: 'Wind speed',
-        value: '10',
+        value: data.wind.speed.toString(),
       )
     ],
   );

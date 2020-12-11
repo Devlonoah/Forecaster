@@ -17,7 +17,7 @@ class _FirstScreenState extends State<FirstScreen> {
 
   @override
   void initState() {
-    // Provider.of<WeatherBloc>(context, listen: false).fetchWeatherData();
+    Provider.of<WeatherBloc>(context, listen: false).fetchWeatherData();
 
     super.initState();
   }
@@ -32,48 +32,65 @@ class _FirstScreenState extends State<FirstScreen> {
   Widget build(BuildContext context) {
     var bloc = Provider.of<WeatherBloc>(context);
     return Scaffold(
-      backgroundColor: Pallete.swatchB,
-      appBar: AppBar(
-        brightness: Brightness.dark,
-        backgroundColor: Pallete.swatchB,
-        title: Text(
-          Provider.of<WeatherBloc>(context, listen: true).appBar,
-          style: TextStyle(
-            color: Colors.black,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        actions: <Widget>[
-          Container(
-            margin: EdgeInsets.all(8),
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-                color: Colors.grey.withOpacity(0.1), shape: BoxShape.circle),
-            child: IconButton(
-              color: Colors.black,
-              icon: Icon(
-                Icons.location_searching,
-              ),
-              onPressed: () {
-                Provider.of<WeatherBloc>(context, listen: false)
-                    .fetchWeatherData();
-              },
-            ),
-          )
-        ],
-      ),
+      backgroundColor: Pallete.swatchD,
       body: SafeArea(
-        child: OrientationBuilder(
-          builder: (BuildContext context, Orientation orientation) {
-            if (orientation == Orientation.portrait) {
-              return buildPortrait(
-                bloc: bloc,
-                context: context,
-              );
-            } else {
-              return buildLandscape();
-            }
-          },
+        child: CustomScrollView(
+          slivers: [
+            SliverAppBar(
+              floating: true,
+              pinned: true,
+              expandedHeight: 100,
+              flexibleSpace: FlexibleSpaceBar(
+                background: Container(color: Colors.black),
+                title: Text(
+                  Provider.of<WeatherBloc>(context, listen: true)
+                      .appBar
+                      .toUpperCase(),
+                  style: TextStyle(
+                      color: Colors.white70,
+                      fontFamily: 'callofduty',
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 2.3),
+                ),
+              ),
+              brightness: Brightness.dark,
+              backgroundColor: Pallete.swatchA,
+              actions: <Widget>[
+                Container(
+                  margin: EdgeInsets.all(8),
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    color: Pallete.swatchF.withOpacity(0.5),
+                    shape: BoxShape.circle,
+                  ),
+                  child: IconButton(
+                    color: Colors.white,
+                    icon: Icon(
+                      Icons.location_searching,
+                    ),
+                    onPressed: () {
+                      Provider.of<WeatherBloc>(context, listen: false)
+                          .fetchWeatherData();
+                    },
+                  ),
+                )
+              ],
+            ),
+            SliverToBoxAdapter(
+              child: StreamBuilder(builder: (context, snapshot) {
+                return OrientationBuilder(
+                  builder: (BuildContext context, Orientation orientation) {
+                    if (orientation == Orientation.portrait) {
+                      return buildPortrait(
+                          bloc: bloc, snapshot: snapshot, context: context);
+                    } else {
+                      return buildLandscape(snapshot: snapshot);
+                    }
+                  },
+                );
+              }),
+            ),
+          ],
         ),
       ),
     );

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:stream_tutorial_dec_2020/constants.dart';
+import 'package:stream_tutorial_dec_2020/model/weather_response.dart';
 
-Column tempAndCoordAndDescription({dynamic data}) {
+Column tempAndCoordAndDescription({WeatherResponse data}) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     mainAxisAlignment: MainAxisAlignment.center,
@@ -14,10 +15,10 @@ Column tempAndCoordAndDescription({dynamic data}) {
               child: Row(
                 children: [
                   Text(
-                    '18°',
+                    data.main.temp.toStringAsFixed(0) + '°',
                     style: TextStyle(
                         fontFamily: 'callofduty',
-                        fontSize: 130,
+                        fontSize: 50,
                         color: Pallete.swatchA,
                         fontWeight: FontWeight.bold),
                   ),
@@ -41,20 +42,20 @@ Column tempAndCoordAndDescription({dynamic data}) {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Long: 12',
+                    'Long: ${data.coord.lon}',
                     style: headerTextStyle.copyWith(
                       color: Pallete.swatchG,
-                      fontSize: 20,
+                      fontSize: 15,
                     ),
                   ),
                   SizedBox(
                     height: 20,
                   ),
                   Text(
-                    'Lat: 32',
+                    'Lat: ${data.coord.lat}',
                     style: headerTextStyle.copyWith(
                       color: Pallete.swatchG,
-                      fontSize: 20,
+                      fontSize: 15,
                     ),
                   ),
                 ],
@@ -70,7 +71,7 @@ Column tempAndCoordAndDescription({dynamic data}) {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            'The cloud is bright.',
+            '${data.weather[0].description}',
             style: TextStyle(
                 fontFamily: 'callofduty',
                 fontSize: 20,
@@ -80,11 +81,12 @@ Column tempAndCoordAndDescription({dynamic data}) {
           Row(
             children: [
               Text(
-                '18°',
+                '${data.main.tempMin}°c',
                 style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Pallete.swatchG),
+                  fontSize: 20,
+                  fontWeight: FontWeight.w300,
+                  color: Colors.white,
+                ),
               ),
               Container(
                 margin: EdgeInsets.symmetric(horizontal: 15),
@@ -94,13 +96,12 @@ Column tempAndCoordAndDescription({dynamic data}) {
                   thickness: 5,
                 ),
               ),
-              Text(
-                '28°',
-                style: TextStyle(
+              Text('${data.main.tempMax}°c',
+                  style: TextStyle(
                     fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Pallete.swatchG),
-              )
+                    fontWeight: FontWeight.w300,
+                    color: Colors.white,
+                  ))
             ],
           ),
         ],
