@@ -27,6 +27,18 @@ Widget buildPortrait(
       ),
     );
   }
+  if (snapshot.error != null) {
+    Center(
+      child: Text(
+        snapshot.error.toString(),
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 40,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    );
+  }
 
   return Container(
     height: mediaqSize.height,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:stream_tutorial_dec_2020/blocs/connectivity_blocs.dart';
 import 'package:stream_tutorial_dec_2020/blocs/weather_blocs.dart';
 import 'package:stream_tutorial_dec_2020/constants.dart';
 import 'package:stream_tutorial_dec_2020/services/weather_api_provider.dart';
@@ -13,18 +14,39 @@ class FirstScreen extends StatefulWidget {
 }
 
 class _FirstScreenState extends State<FirstScreen> {
-  WeatherApiProvider networkHelper = WeatherApiProvider();
+  // WeatherApiProvider networkHelper = WeatherApiProvider();
 
   @override
   void initState() {
-    Provider.of<WeatherBloc>(context, listen: false).fetchWeatherData();
-
     super.initState();
+    // Provider.of<WeatherBloc>(context, listen: false).fetchConnectionState();
+    // Provider.of<WeatherBloc>(context, listen: false).fetchWeatherData();
+    // Provider.of<WeatherBloc>(context, listen: false)
+    //     .connectivityResultHolderStream
+    //     .forEach((element) {
+    //   ScaffoldMessenger.of(context).showSnackBar(
+    //     SnackBar(
+    //       content: Text('${element.toString()}'),
+    //     ),
+    //   );
+    // });
+
+    Provider.of<ConnectionStateBloc>(context, listen: false)
+        .fecthConnectionState();
+    Provider.of<ConnectionStateBloc>(context, listen: false)
+        .eventInString
+        .forEach((element) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text(element),
+      ));
+    });
   }
 
   @override
   void dispose() {
     Provider.of<WeatherBloc>(context).dispose();
+
+    Provider.of<ConnectionStateBloc>(context).dispose();
     super.dispose();
   }
 
