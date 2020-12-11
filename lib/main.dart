@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:stream_tutorial_dec_2020/blocs/connectivity_blocs.dart';
 import 'package:stream_tutorial_dec_2020/blocs/weather_blocs.dart';
 
+import 'blocs/networkstatusbloc.dart';
 import 'ui/weather_dashboard.dart';
 
 void main() {
@@ -24,6 +25,9 @@ class _MyAppState extends State<MyApp> {
         ),
         Provider<ConnectionStateBloc>(
           create: (context) => ConnectionStateBloc(),
+        ),
+        Provider<NetworkStatusService>(
+          create: (context) => NetworkStatusService(),
         )
       ],
       child: MaterialApp(

@@ -3,13 +3,14 @@ import 'package:connectivity/connectivity.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:rxdart/subjects.dart';
 import 'package:stream_tutorial_dec_2020/blocs/connectivity_blocs.dart';
+import 'package:stream_tutorial_dec_2020/blocs/networkstatusbloc.dart';
 import 'package:stream_tutorial_dec_2020/model/weather_response.dart';
 import 'package:stream_tutorial_dec_2020/repository/repository.dart';
 
 class WeatherBloc {
   String appBar = 'Prewer';
 
-  ConnectionStateBloc _connectionStateBloc;
+  ConnectionStateBloc _connectionStateBloc = ConnectionStateBloc();
   final _repository = WeatherRepository();
   // final _connectivityInit = Connectivity();
 
@@ -46,23 +47,18 @@ class WeatherBloc {
   //   },
   // );
 
-  fetchWeatherData() {
-    _connectionStateBloc.connectState.listen(
-      (result) async {
-        bool isWifi = result == ConnectivityResult.wifi;
-        bool isMobile = result == ConnectivityResult.mobile;
-        bool isNone = result == ConnectivityResult.none;
-        bool isConnectedToNetwork = isWifi || isMobile;
-        if (isConnectedToNetwork) {
-          WeatherResponse weatherResponse =
-              await _repository.fetchWeatherData();
-          print(weatherResponse);
-          _weatherFetcher.sink.add(weatherResponse);
-        } else if (isNone) {
-          _weatherFetcher.sink.addError('Cant fetch weather');
-        }
-      },
-    );
+  fetchWeatherData() async {
+    NetworkStatusService networkStatusService = NetworkStatusService();
+    networkStatusService.networkStatusController.stream.listen((event) async {
+      if (event == NetworkStatus.online) {
+        WeatherResponse weatherResponse = await _repository.fetchWeatherData();
+
+        _weatherFetcher.sink.add(weatherResponse);
+        print(weatherResponse);
+      } else {
+        _weatherFetcher.addError('errorr sdsd');
+      }
+    });
   }
 
   // Future fetchConnectionState() async {

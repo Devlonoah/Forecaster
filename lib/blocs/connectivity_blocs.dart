@@ -9,16 +9,15 @@ class ConnectionStateBloc {
   final _connectiionEventToString = PublishSubject<String>();
 
   Stream<ConnectivityResult> get connectState => _connectionController.stream;
-  StreamSink<ConnectivityResult> get changeConnectionState =>
-      _connectionController.sink;
+  // StreamSink<ConnectivityResult> get changeConnectionState =>
+  //     _connectionController.sink;
 
   Stream<String> get eventInString => _connectiionEventToString.stream;
   StreamSink<String> get changeEventInString => _connectiionEventToString.sink;
 
   fecthConnectionState() {
     _connectivity.onConnectivityChanged.listen((event) {
-      print(event);
-      changeConnectionState.add(event);
+      // changeConnectionState.add(event);
 
       switch (event) {
         case ConnectivityResult.wifi:
@@ -31,6 +30,8 @@ class ConnectionStateBloc {
           changeEventInString.add('no internet connection');
           break;
       }
+
+      return event;
     });
   }
 

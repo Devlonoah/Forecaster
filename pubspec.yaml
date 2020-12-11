@@ -23,17 +23,17 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  connectivity: ^2.0.2
   cupertino_icons: ^1.0.1+1
   eva_icons_flutter: ^2.0.1
-  font_awesome_flutter: ^8.10.0
+  font_awesome_flutter: ^8.10.1
   geolocator: ^6.1.9
+  get_it: ^5.0.3
   http: ^0.12.2
+  intl: ^0.16.1
   provider: ^4.3.2+2
   rxdart: ^0.24.1
   syncfusion_flutter_charts: ^18.3.52
-  connectivity: ^2.0.2
-  get_it: ^5.0.3
-  intl: ^0.16.1
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -66,6 +66,5 @@ flutter:
     - family: callofduty
       fonts:
         - asset: assets/fonts/SF_Espresso_Bold.ttf
-  #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
