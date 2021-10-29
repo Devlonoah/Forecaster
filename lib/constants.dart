@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 final valueTextStyle = TextStyle(
     fontSize: 20,
@@ -22,4 +23,19 @@ class Pallete {
   static final swatchE = Color(0xFF5e0b05);
   static final swatchF = Color(0xFFca0700);
   static final swatchG = Color(0xFF9d9d9d);
+  static const GOLD_COLOR = Color(0xFFB4B214);
+
+  static const DULL_WHITE = Colors.white70;
+
+  static final GOLD_GRADIENT = BoxDecoration(
+    gradient: LinearGradient(
+      begin: Alignment.bottomRight,
+      end: Alignment.topLeft,
+      colors: [Pallete.swatchA, Pallete.GOLD_COLOR],
+    ),
+  );
+}
+
+addVerticalSpace(double height) {
+  return SizedBox(height: height.h);
 }
