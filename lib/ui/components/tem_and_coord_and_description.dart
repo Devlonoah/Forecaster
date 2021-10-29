@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stream_tutorial_dec_2020/constants.dart';
 import 'package:stream_tutorial_dec_2020/model/weather_response.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 Column tempAndCoordAndDescription({WeatherResponse data}) {
   return Column(
@@ -15,10 +16,10 @@ Column tempAndCoordAndDescription({WeatherResponse data}) {
               child: Row(
                 children: [
                   Text(
-                    data.main.temp.toStringAsFixed(0) + '°',
+                    data.main.temp.toStringAsFixed(0) + ' °',
                     style: TextStyle(
                         fontFamily: 'callofduty',
-                        fontSize: 50,
+                        fontSize: 45.sp,
                         color: Pallete.swatchA,
                         fontWeight: FontWeight.bold),
                   ),
@@ -26,7 +27,7 @@ Column tempAndCoordAndDescription({WeatherResponse data}) {
                     'c',
                     style: TextStyle(
                         fontFamily: 'callofduty',
-                        fontSize: 70,
+                        fontSize: 50.sp,
                         color: Pallete.swatchA,
                         fontWeight: FontWeight.bold),
                   )
@@ -34,8 +35,7 @@ Column tempAndCoordAndDescription({WeatherResponse data}) {
               ),
             ),
           ),
-          Container(
-            width: 130,
+          FittedBox(
             child: Center(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -45,17 +45,15 @@ Column tempAndCoordAndDescription({WeatherResponse data}) {
                     'Long: ${data.coord.lon}',
                     style: headerTextStyle.copyWith(
                       color: Pallete.swatchG,
-                      fontSize: 15,
+                      fontSize: 15.sp,
                     ),
                   ),
-                  SizedBox(
-                    height: 20,
-                  ),
+                  addVerticalSpace(20),
                   Text(
                     'Lat: ${data.coord.lat}',
                     style: headerTextStyle.copyWith(
                       color: Pallete.swatchG,
-                      fontSize: 15,
+                      fontSize: 15.sp,
                     ),
                   ),
                 ],
@@ -64,9 +62,7 @@ Column tempAndCoordAndDescription({WeatherResponse data}) {
           )
         ],
       ),
-      SizedBox(
-        height: 20,
-      ),
+      addVerticalSpace(20),
       Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -74,7 +70,7 @@ Column tempAndCoordAndDescription({WeatherResponse data}) {
             '${data.weather[0].description}',
             style: TextStyle(
                 fontFamily: 'callofduty',
-                fontSize: 20,
+                fontSize: 20.sp,
                 color: Pallete.swatchD,
                 fontWeight: FontWeight.bold),
           ),
@@ -83,23 +79,23 @@ Column tempAndCoordAndDescription({WeatherResponse data}) {
               Text(
                 '${data.main.tempMin}°c',
                 style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w300,
+                  fontSize: 20.sp,
+                  fontWeight: FontWeight.w700,
                   color: Colors.white,
                 ),
               ),
               Container(
-                margin: EdgeInsets.symmetric(horizontal: 15),
-                width: 40,
+                margin: EdgeInsets.symmetric(horizontal: 12.w),
+                width: 25.w,
                 child: Divider(
                   color: Pallete.swatchA.withOpacity(0.5),
-                  thickness: 5,
+                  thickness: 4.h,
                 ),
               ),
               Text('${data.main.tempMax}°c',
                   style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w300,
+                    fontSize: 20.sp,
+                    fontWeight: FontWeight.w700,
                     color: Colors.white,
                   ))
             ],

@@ -33,7 +33,8 @@ dependencies:
   intl: ^0.16.1
   provider: ^4.3.2+2
   rxdart: ^0.24.1
-  syncfusion_flutter_charts: ^18.3.52
+  flutter_bloc: ^6.0.1
+  flutter_screenutil: ^5.0.0+2
 dev_dependencies:
   flutter_test:
     sdk: flutter

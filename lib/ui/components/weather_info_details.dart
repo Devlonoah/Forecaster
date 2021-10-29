@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:stream_tutorial_dec_2020/constants.dart';
 import 'package:stream_tutorial_dec_2020/model/weather_response.dart';
 import 'package:stream_tutorial_dec_2020/ui/components/text_with_value.dart';
 
@@ -16,24 +17,14 @@ Column weatherInfoDetails(WeatherResponse data) {
         title: 'Sunset',
         value: dateFormat.format(sunset),
       ),
+      addVerticalSpace(10),
       TextWithValue(title: 'Sunrise', value: dateFormat.format(sunriseDate)),
-//      Row(
-//        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//        children: [
-//          TextWithValue(
-//            title: 'Sunrise',
-//            value: '20',
-//          ),
-//          TextWithValue(
-//            title: 'SunSet',
-//            value: '10',
-//          ),
-//        ],
-//      ),
+      addVerticalSpace(10),
       TextWithValue(
         title: 'Humidity',
         value: data.main.humidity.toStringAsFixed(1),
       ),
+      addVerticalSpace(10),
       TextWithValue(
         title: 'Wind speed',
         value: data.wind.speed.toString(),
