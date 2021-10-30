@@ -1,7 +1,7 @@
 import 'package:geolocator/geolocator.dart';
-import 'package:stream_tutorial_dec_2020/model/weather_response.dart';
-import 'package:stream_tutorial_dec_2020/services/location_provider.dart';
-import 'package:stream_tutorial_dec_2020/services/weather_api_provider.dart';
+import '../model/weather_response.dart';
+import '../services/location_provider.dart';
+import '../services/weather_api_provider.dart';
 
 class WeatherRepository {
   final _locationProvider = LocationProvider();

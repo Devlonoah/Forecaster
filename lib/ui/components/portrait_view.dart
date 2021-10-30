@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:stream_tutorial_dec_2020/blocs/weathercubit/weather_cubit.dart';
-import 'package:stream_tutorial_dec_2020/constants.dart';
-import 'package:stream_tutorial_dec_2020/ui/components/tem_and_coord_and_description.dart';
-import 'package:stream_tutorial_dec_2020/ui/components/weather_info_details.dart';
+import '../../blocs/weathercubit/weather_cubit.dart';
+import '../../constants.dart';
+import 'tem_and_coord_and_description.dart';
+import 'weather_info_details.dart';
 
 import 'city_and_date.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

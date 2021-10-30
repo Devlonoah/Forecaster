@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:stream_tutorial_dec_2020/model/weather_response.dart';
+import '../model/weather_response.dart';
 
 class WeatherApiProvider {
   Future<WeatherResponse> fetchWeatherData({double lat, double long}) async {

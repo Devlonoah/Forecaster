@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:stream_tutorial_dec_2020/model/weather_response.dart';
+import '../../model/weather_response.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

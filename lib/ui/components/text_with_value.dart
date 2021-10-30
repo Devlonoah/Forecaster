@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:stream_tutorial_dec_2020/constants.dart';
+import '../../constants.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TextWithValue extends StatelessWidget {

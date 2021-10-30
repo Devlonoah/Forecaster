@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:stream_tutorial_dec_2020/constants.dart';
-import 'package:stream_tutorial_dec_2020/model/weather_response.dart';
+import '../../constants.dart';
+import '../../model/weather_response.dart';
 
 Column tempAndCoordAndDescription({WeatherResponse data}) {
   return Column(

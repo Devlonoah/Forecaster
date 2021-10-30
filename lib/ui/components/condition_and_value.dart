@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:stream_tutorial_dec_2020/constants.dart';
+import '../../constants.dart';
 
 Container conditionAndValue({String condition, double value}) {
   return Container(

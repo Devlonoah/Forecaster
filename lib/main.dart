@@ -4,9 +4,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
-import 'package:stream_tutorial_dec_2020/blocs/weathercubit/weather_cubit.dart';
-import 'package:stream_tutorial_dec_2020/constants.dart';
-import 'package:stream_tutorial_dec_2020/di.dart';
+import 'blocs/weathercubit/weather_cubit.dart';
+import 'constants.dart';
+import 'di.dart';
 
 import 'ui/weather_dashboard.dart';
 

@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 
-import 'package:stream_tutorial_dec_2020/model/weather_response.dart';
-import 'package:stream_tutorial_dec_2020/repository/repository.dart';
+import '../../model/weather_response.dart';
+import '../../repository/repository.dart';
 import 'package:connectivity/connectivity.dart' as net;
 part 'weather_state.dart';
 
