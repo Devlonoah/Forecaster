@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import 'package:stream_tutorial_dec_2020/constants.dart';
 import 'package:stream_tutorial_dec_2020/model/weather_response.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 Column tempAndCoordAndDescription({WeatherResponse data}) {
   return Column(
@@ -63,45 +64,69 @@ Column tempAndCoordAndDescription({WeatherResponse data}) {
         ],
       ),
       addVerticalSpace(20),
-      Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            '${data.weather[0].description}',
-            style: TextStyle(
-                fontFamily: 'callofduty',
-                fontSize: 20.sp,
-                color: Pallete.swatchD,
-                fontWeight: FontWeight.bold),
-          ),
-          Row(
-            children: [
-              Text(
-                '${data.main.tempMin}°c',
-                style: TextStyle(
-                  fontSize: 20.sp,
-                  fontWeight: FontWeight.w700,
-                  color: Colors.white,
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 12.w),
-                width: 25.w,
-                child: Divider(
-                  color: Pallete.swatchA.withOpacity(0.5),
-                  thickness: 4.h,
-                ),
-              ),
-              Text('${data.main.tempMax}°c',
-                  style: TextStyle(
-                    fontSize: 20.sp,
-                    fontWeight: FontWeight.w700,
-                    color: Colors.white,
-                  ))
-            ],
-          ),
-        ],
-      ),
+      WeatherReviewAndTempDiff(data: data),
     ],
   );
+}
+
+class WeatherReviewAndTempDiff extends StatelessWidget {
+  const WeatherReviewAndTempDiff({
+    @required this.data,
+  });
+
+  final WeatherResponse data;
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        SizedBox(
+          width: 100.w,
+          child: FittedBox(
+            child: Text(
+              '${data.weather[0].description}',
+              style: TextStyle(
+                  fontFamily: 'callofduty',
+                  fontSize: 15.sp,
+                  color: Pallete.swatchD,
+                  fontWeight: FontWeight.bold),
+            ),
+          ),
+        ),
+        addHorizontalSpace(50),
+        Expanded(
+          child: FittedBox(
+            child: Row(
+              children: [
+                Text(
+                  '${data.main.tempMin}°c',
+                  style: TextStyle(
+                    fontSize: 15.sp,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.white70,
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.symmetric(horizontal: 12.w),
+                  width: 10.w,
+                  child: Divider(
+                    color: Pallete.swatchA.withOpacity(0.5),
+                    thickness: 4.h,
+                  ),
+                ),
+                Text(
+                  '${data.main.tempMax}°c',
+                  style: TextStyle(
+                    fontSize: 15.sp,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.white70,
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
+      ],
+    );
+  }
 }

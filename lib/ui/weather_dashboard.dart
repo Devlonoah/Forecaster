@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -14,14 +15,18 @@ class FirstScreen extends StatelessWidget {
       title: Text(
         'Prewer',
         style: TextStyle(
-            color: Pallete.DULL_WHITE,
-            fontFamily: 'callofduty',
-            fontWeight: FontWeight.bold,
-            letterSpacing: 2.3,
-            fontSize: 20.sp),
+          // color: Pallete.DULL_WHITE,
+
+          color: Colors.black,
+          fontFamily: 'callofduty',
+          fontWeight: FontWeight.bold,
+          letterSpacing: 2.3,
+          fontSize: 20.sp,
+        ),
       ),
       elevation: 0,
-      brightness: Brightness.dark,
+      // brightness: Brightness.light,
+      systemOverlayStyle: SystemUiOverlayStyle.light,
       backgroundColor: Pallete.GOLD_COLOR,
       actions: <Widget>[
         GestureDetector(
@@ -37,7 +42,7 @@ class FirstScreen extends StatelessWidget {
             child: Icon(
               FontAwesomeIcons.satellite,
               size: 25.sp,
-              color: Pallete.DULL_WHITE,
+              color: Colors.grey[800],
             ),
           ),
         )

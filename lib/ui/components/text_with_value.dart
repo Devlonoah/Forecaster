@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stream_tutorial_dec_2020/constants.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TextWithValue extends StatelessWidget {
   final String title;
@@ -15,7 +16,7 @@ class TextWithValue extends StatelessWidget {
         Text(
           title,
           style: TextStyle(
-              fontSize: 20,
+              fontSize: 20.sp,
               fontWeight: FontWeight.w600,
               fontFamily: 'callofduty'),
         ),
@@ -23,7 +24,7 @@ class TextWithValue extends StatelessWidget {
           value,
           style: TextStyle(
             fontFamily: 'callofduty',
-            fontSize: 20,
+            fontSize: 20.sp,
             color: Pallete.swatchG,
             fontWeight: FontWeight.bold,
           ),

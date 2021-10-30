@@ -39,3 +39,7 @@ class Pallete {
 addVerticalSpace(double height) {
   return SizedBox(height: height.h);
 }
+
+addHorizontalSpace(double width) {
+  return SizedBox(width: width.w);
+}

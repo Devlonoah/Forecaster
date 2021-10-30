@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
 import 'package:stream_tutorial_dec_2020/blocs/weathercubit/weather_cubit.dart';
+import 'package:stream_tutorial_dec_2020/constants.dart';
 import 'package:stream_tutorial_dec_2020/di.dart';
 
 import 'ui/weather_dashboard.dart';
@@ -11,6 +13,11 @@ import 'ui/weather_dashboard.dart';
 void main() {
   runApp(MyApp());
   initDi();
+
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark.copyWith(
+      statusBarColor: Color(0xFF555003),
+      systemNavigationBarColor: Color(0xFF111000),
+      systemNavigationBarIconBrightness: Brightness.light));
 }
 
 class MyApp extends StatefulWidget {
