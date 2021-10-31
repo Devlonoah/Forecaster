@@ -2,6 +2,9 @@
 //
 //     final welcome = welcomeFromJson(jsonString);
 
+import 'package:stream_tutorial_dec_2020/model/main_model.dart';
+import 'package:stream_tutorial_dec_2020/model/weather_model.dart';
+
 //
 
 import 'clouds_model.dart';
@@ -10,9 +13,6 @@ import 'main_model.dart';
 import 'sys_model.dart';
 import 'weather_model.dart';
 import 'wind_model.dart';
-
-import 'package:stream_tutorial_dec_2020/model/main_model.dart';
-import 'package:stream_tutorial_dec_2020/model/weather_model.dart';
 
 class WeatherResponse {
   WeatherResponse({

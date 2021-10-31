@@ -1,4 +1,5 @@
 import 'package:get_it/get_it.dart';
+
 import 'blocs/weathercubit/weather_cubit.dart';
 import 'repository/repository.dart';
 
