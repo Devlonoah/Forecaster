@@ -22,6 +22,5 @@ class WeatherApiProvider {
     } catch (e) {
       print('error code message : ${e.toString()}');
     }
-    throw '';
   }
 }

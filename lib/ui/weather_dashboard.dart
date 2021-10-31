@@ -15,8 +15,6 @@ class FirstScreen extends StatelessWidget {
       title: Text(
         'Prewer',
         style: TextStyle(
-          // color: Pallete.DULL_WHITE,
-
           color: Colors.black,
           fontFamily: 'callofduty',
           fontWeight: FontWeight.bold,
@@ -50,12 +48,31 @@ class FirstScreen extends StatelessWidget {
     );
     return Scaffold(
       appBar: _appBar,
-      body: Container(
-        decoration: Pallete.GOLD_GRADIENT,
-        child: BlocBuilder<WeatherCubit, WeatherState>(
-          cubit: BlocProvider.of<WeatherCubit>(context),
-          builder: (context, state) =>
-              buildPortrait(state: state, context: context),
+      body: BlocListener<WeatherCubit, WeatherState>(
+        listener: (context, state) {
+          if (state is WeatherLoadFailure) {
+            ScaffoldMessenger.of(context)
+              ..hideCurrentSnackBar()
+              ..showSnackBar(SnackBar(
+                content: Text(
+                  state.message ?? 'Error',
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 13.sp),
+                ),
+                behavior: SnackBarBehavior.floating,
+                backgroundColor: Pallete.GOLD_COLOR,
+              ));
+          }
+        },
+        child: Container(
+          decoration: Pallete.GOLD_GRADIENT,
+          child: BlocBuilder<WeatherCubit, WeatherState>(
+            cubit: BlocProvider.of<WeatherCubit>(context),
+            builder: (context, state) =>
+                buildPortrait(state: state, context: context),
+          ),
         ),
       ),
     );

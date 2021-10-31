@@ -37,6 +37,7 @@ class _MyAppState extends State<MyApp> {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         debugShowMaterialGrid: false,
+        title: 'Prewer',
         theme: ThemeData.light().copyWith(
             primaryColor: Colors.black,
             accentColor: Colors.red,

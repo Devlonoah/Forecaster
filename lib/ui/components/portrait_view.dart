@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/src/provider.dart';
 import '../../blocs/weathercubit/weather_cubit.dart';
 import '../../constants.dart';
 import 'tem_and_coord_and_description.dart';
@@ -20,7 +21,9 @@ Widget buildPortrait({WeatherState state, BuildContext context}) {
             color: Colors.black54,
             elevation: 10.0,
             child: InkWell(
-              onTap: () {},
+              onTap: () => context
+                  .read<WeatherCubit>()
+                  .fetchWeatherDataForCurrentLocation(),
               child: Padding(
                 padding: EdgeInsets.all(20.r),
                 child: Icon(
@@ -47,7 +50,6 @@ Widget buildPortrait({WeatherState state, BuildContext context}) {
   if (state is WeatherLoadSuccessful) {
     final _data = state.weatherData;
     return Container(
-      decoration: Pallete.GOLD_GRADIENT,
       padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 15.w),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
