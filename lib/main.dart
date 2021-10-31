@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
 import 'blocs/weathercubit/weather_cubit.dart';
-import 'constants.dart';
+
 import 'di.dart';
 
 import 'ui/weather_dashboard.dart';
