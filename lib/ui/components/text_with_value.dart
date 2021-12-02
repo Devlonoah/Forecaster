@@ -18,6 +18,7 @@ class TextWithValue extends StatelessWidget {
           title,
           style: TextStyle(
               fontSize: 20.sp,
+              color: Pallete.GOLD_COLOR,
               fontWeight: FontWeight.w600,
               fontFamily: 'callofduty'),
         ),
@@ -26,7 +27,7 @@ class TextWithValue extends StatelessWidget {
           style: TextStyle(
             fontFamily: 'callofduty',
             fontSize: 20.sp,
-            color: Pallete.swatchG,
+            color: Pallete.GOLD_COLOR,
             fontWeight: FontWeight.bold,
           ),
         )

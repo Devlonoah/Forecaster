@@ -23,15 +23,21 @@ class Pallete {
   static final swatchE = Color(0xFF5e0b05);
   static final swatchF = Color(0xFFca0700);
   static final swatchG = Color(0xFF9d9d9d);
-  static const GOLD_COLOR = Color(0xFFB4B214);
+  // static const GOLD_COLOR = Color(0xFFFF0000);
 
+  static const Color mainColor = Colors.black;
+
+  static const textColor1 = Color(0XFFF5EDF0);
+  static const textColor2 = Color(0XFFD1CCDC);
+  static const GOLD_COLOR = Color(0xFFF3B61F);
+  // ;
   static const DULL_WHITE = Colors.white70;
 
   static final GOLD_GRADIENT = BoxDecoration(
     gradient: LinearGradient(
       begin: Alignment.bottomRight,
       end: Alignment.topLeft,
-      colors: [Pallete.swatchA, Pallete.GOLD_COLOR],
+      colors: [Colors.white, Colors.white],
     ),
   );
 }

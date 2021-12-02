@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import '../../model/weather_response.dart';
-import 'package:intl/intl.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:intl/intl.dart';
 
 import '../../constants.dart';
+import '../../model/weather_response.dart';
 
 Column cityAndDate(WeatherResponse data) {
   String textFormat(String text) {
@@ -30,6 +30,7 @@ Column cityAndDate(WeatherResponse data) {
         style: TextStyle(
           fontFamily: 'callofduty',
           fontSize: 40.sp,
+          color: Pallete.textColor1,
           fontWeight: FontWeight.bold,
         ),
       ),
@@ -39,6 +40,7 @@ Column cityAndDate(WeatherResponse data) {
         style: TextStyle(
           fontFamily: 'callofduty',
           fontSize: 17.sp,
+          color: Pallete.textColor2,
           fontWeight: FontWeight.w300,
         ),
       ),

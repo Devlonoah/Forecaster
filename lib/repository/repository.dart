@@ -15,6 +15,8 @@ class WeatherRepository {
 
     WeatherResponse data = await _weatherApiCall(position);
     print('repo side:$data');
+
+    print('temperature is ${data.main.temp}');
     return data;
   }
 

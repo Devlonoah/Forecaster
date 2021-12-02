@@ -3,11 +3,10 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
+import 'package:stream_tutorial_dec_2020/constants.dart';
 
 import 'blocs/weathercubit/weather_cubit.dart';
-
 import 'di.dart';
-
 import 'ui/weather_dashboard.dart';
 
 void main() {
@@ -15,9 +14,12 @@ void main() {
   initDi();
 
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark.copyWith(
-      statusBarColor: Color(0xFF555003),
-      systemNavigationBarColor: Color(0xFF111000),
-      systemNavigationBarIconBrightness: Brightness.light));
+      statusBarColor: Pallete.GOLD_COLOR,
+      statusBarIconBrightness: Brightness.dark,
+      statusBarBrightness: Brightness.dark,
+      systemStatusBarContrastEnforced: false,
+      systemNavigationBarColor: Pallete.GOLD_COLOR,
+      systemNavigationBarIconBrightness: Brightness.dark));
 }
 
 class MyApp extends StatefulWidget {
@@ -39,9 +41,11 @@ class _MyAppState extends State<MyApp> {
         debugShowMaterialGrid: false,
         title: 'Prewer',
         theme: ThemeData.light().copyWith(
-            primaryColor: Colors.black,
-            accentColor: Colors.red,
-            buttonColor: Colors.red),
+          primaryColor: Colors.black,
+          scaffoldBackgroundColor: Pallete.mainColor,
+          accentColor: Colors.red,
+          buttonColor: Colors.red,
+        ),
         home: ScreenUtilInit(
           builder: () => FirstScreen(),
         ),

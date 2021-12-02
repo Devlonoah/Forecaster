@@ -21,7 +21,7 @@ Column tempAndCoordAndDescription({WeatherResponse data}) {
                     style: TextStyle(
                         fontFamily: 'callofduty',
                         fontSize: 45.sp,
-                        color: Pallete.swatchA,
+                        color: Pallete.textColor1,
                         fontWeight: FontWeight.bold),
                   ),
                   Text(
@@ -29,7 +29,7 @@ Column tempAndCoordAndDescription({WeatherResponse data}) {
                     style: TextStyle(
                         fontFamily: 'callofduty',
                         fontSize: 50.sp,
-                        color: Pallete.swatchA,
+                        color: Pallete.textColor1,
                         fontWeight: FontWeight.bold),
                   )
                 ],
@@ -45,7 +45,7 @@ Column tempAndCoordAndDescription({WeatherResponse data}) {
                   Text(
                     'Long: ${data.coord.lon}',
                     style: headerTextStyle.copyWith(
-                      color: Pallete.swatchG,
+                      color: Pallete.GOLD_COLOR,
                       fontSize: 15.sp,
                     ),
                   ),
@@ -53,7 +53,7 @@ Column tempAndCoordAndDescription({WeatherResponse data}) {
                   Text(
                     'Lat: ${data.coord.lat}',
                     style: headerTextStyle.copyWith(
-                      color: Pallete.swatchG,
+                      color: Pallete.GOLD_COLOR,
                       fontSize: 15.sp,
                     ),
                   ),
@@ -88,7 +88,7 @@ class WeatherReviewAndTempDiff extends StatelessWidget {
               style: TextStyle(
                   fontFamily: 'callofduty',
                   fontSize: 15.sp,
-                  color: Pallete.swatchD,
+                  color: Pallete.GOLD_COLOR,
                   fontWeight: FontWeight.bold),
             ),
           ),
@@ -99,27 +99,27 @@ class WeatherReviewAndTempDiff extends StatelessWidget {
             child: Row(
               children: [
                 Text(
-                  '${data.main.tempMin}°c',
+                  '${data.main.tempMin.toStringAsFixed(1)}°c',
                   style: TextStyle(
                     fontSize: 15.sp,
                     fontWeight: FontWeight.w700,
-                    color: Colors.white70,
+                    color: Pallete.GOLD_COLOR,
                   ),
                 ),
                 Container(
                   margin: EdgeInsets.symmetric(horizontal: 12.w),
                   width: 10.w,
                   child: Divider(
-                    color: Pallete.swatchA.withOpacity(0.5),
+                    color: Colors.white,
                     thickness: 4.h,
                   ),
                 ),
                 Text(
-                  '${data.main.tempMax}°c',
+                  '${data.main.tempMax.toStringAsFixed(1)}°c',
                   style: TextStyle(
                     fontSize: 15.sp,
                     fontWeight: FontWeight.w700,
-                    color: Colors.white70,
+                    color: Pallete.GOLD_COLOR,
                   ),
                 )
               ],

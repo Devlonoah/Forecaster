@@ -18,7 +18,7 @@ Widget buildPortrait({WeatherState state, BuildContext context}) {
         ClipRRect(
           borderRadius: BorderRadius.circular(10),
           child: Material(
-            color: Colors.black54,
+            color: Pallete.GOLD_COLOR,
             elevation: 10.0,
             child: InkWell(
               onTap: () => context
@@ -27,7 +27,7 @@ Widget buildPortrait({WeatherState state, BuildContext context}) {
               child: Padding(
                 padding: EdgeInsets.all(20.r),
                 child: Icon(
-                  FontAwesomeIcons.satellite,
+                  Icons.wifi_off_outlined,
                   size: 25.sp,
                   color: Colors.white,
                 ),
@@ -37,11 +37,11 @@ Widget buildPortrait({WeatherState state, BuildContext context}) {
         ),
         addVerticalSpace(20),
         Text(
-          'RETRY',
+          'TAP TO RETRY',
           style: TextStyle(
             fontFamily: 'callofduty',
             fontSize: 14.sp,
-            color: Colors.white70,
+            color: Pallete.GOLD_COLOR,
           ),
         ),
       ]),

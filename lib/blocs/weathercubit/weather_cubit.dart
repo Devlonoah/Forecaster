@@ -1,9 +1,10 @@
 import 'package:bloc/bloc.dart';
+import 'package:connectivity/connectivity.dart' as net;
 import 'package:meta/meta.dart';
 
 import '../../model/weather_response.dart';
 import '../../repository/repository.dart';
-import 'package:connectivity/connectivity.dart' as net;
+
 part 'weather_state.dart';
 
 class WeatherCubit extends Cubit<WeatherState> {
