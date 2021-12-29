@@ -1,4 +1,4 @@
-package com.example.stream_tutorial_dec_2020
+package com.choouse.prewer
 
 import io.flutter.embedding.android.FlutterActivity
 
