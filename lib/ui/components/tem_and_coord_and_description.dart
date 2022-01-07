@@ -4,7 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../constants.dart';
 import '../../model/weather_response.dart';
 
-Column tempAndCoordAndDescription({WeatherResponse data}) {
+Widget tempAndCoordAndDescription(
+    {WeatherResponse data, BuildContext context}) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     mainAxisAlignment: MainAxisAlignment.center,
@@ -18,19 +19,11 @@ Column tempAndCoordAndDescription({WeatherResponse data}) {
                 children: [
                   Text(
                     data.main.temp.toStringAsFixed(0) + ' °',
-                    style: TextStyle(
-                        fontFamily: 'callofduty',
-                        fontSize: 45.sp,
-                        color: Pallete.textColor1,
-                        fontWeight: FontWeight.bold),
+                    style: Theme.of(context).textTheme.headline2,
                   ),
                   Text(
                     'c',
-                    style: TextStyle(
-                        fontFamily: 'callofduty',
-                        fontSize: 50.sp,
-                        color: Pallete.textColor1,
-                        fontWeight: FontWeight.bold),
+                    style: Theme.of(context).textTheme.headline3,
                   )
                 ],
               ),
@@ -44,18 +37,12 @@ Column tempAndCoordAndDescription({WeatherResponse data}) {
                 children: [
                   Text(
                     'Long: ${data.coord.lon}',
-                    style: headerTextStyle.copyWith(
-                      color: Pallete.GOLD_COLOR,
-                      fontSize: 15.sp,
-                    ),
+                    style: Theme.of(context).textTheme.bodyText1,
                   ),
                   addVerticalSpace(20),
                   Text(
                     'Lat: ${data.coord.lat}',
-                    style: headerTextStyle.copyWith(
-                      color: Pallete.GOLD_COLOR,
-                      fontSize: 15.sp,
-                    ),
+                    style: Theme.of(context).textTheme.bodyText1,
                   ),
                 ],
               ),
@@ -84,12 +71,9 @@ class WeatherReviewAndTempDiff extends StatelessWidget {
           width: 100.w,
           child: FittedBox(
             child: Text(
-              '${data.weather[0].description}',
-              style: TextStyle(
-                  fontFamily: 'callofduty',
-                  fontSize: 15.sp,
-                  color: Pallete.GOLD_COLOR,
-                  fontWeight: FontWeight.bold),
+              '${data.weather[0].description}'.toUpperCase(),
+              style: Theme.of(context).textTheme.bodyText2.copyWith(
+                  color: Pallete.GOLD_COLOR, fontWeight: FontWeight.bold),
             ),
           ),
         ),
@@ -100,11 +84,11 @@ class WeatherReviewAndTempDiff extends StatelessWidget {
               children: [
                 Text(
                   '${data.main.tempMin.toStringAsFixed(1)}°c',
-                  style: TextStyle(
-                    fontSize: 15.sp,
-                    fontWeight: FontWeight.w700,
-                    color: Pallete.GOLD_COLOR,
-                  ),
+                  style: Theme.of(context).textTheme.bodyText2.copyWith(
+                        fontSize: 15.sp,
+                        fontWeight: FontWeight.w700,
+                        color: Pallete.GOLD_COLOR,
+                      ),
                 ),
                 Container(
                   margin: EdgeInsets.symmetric(horizontal: 12.w),
@@ -116,11 +100,11 @@ class WeatherReviewAndTempDiff extends StatelessWidget {
                 ),
                 Text(
                   '${data.main.tempMax.toStringAsFixed(1)}°c',
-                  style: TextStyle(
-                    fontSize: 15.sp,
-                    fontWeight: FontWeight.w700,
-                    color: Pallete.GOLD_COLOR,
-                  ),
+                  style: Theme.of(context).textTheme.bodyText2.copyWith(
+                        fontSize: 15.sp,
+                        fontWeight: FontWeight.w700,
+                        color: Pallete.GOLD_COLOR,
+                      ),
                 )
               ],
             ),

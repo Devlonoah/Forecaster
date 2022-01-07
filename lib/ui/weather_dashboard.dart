@@ -15,13 +15,7 @@ class FirstScreen extends StatelessWidget {
       backgroundColor: Pallete.mainColor,
       title: Text(
         'Prewer',
-        style: TextStyle(
-          color: Pallete.textColor2,
-          fontFamily: 'callofduty',
-          fontWeight: FontWeight.bold,
-          letterSpacing: 2.3,
-          fontSize: 20.sp,
-        ),
+        style: Theme.of(context).textTheme.headline6,
       ),
       actions: <Widget>[
         GestureDetector(
@@ -36,8 +30,7 @@ class FirstScreen extends StatelessWidget {
               ),
               child: Icon(
                 FontAwesomeIcons.satellite,
-                size: 25.sp,
-                color: Pallete.textColor2,
+                size: 25,
               )),
         )
       ],
@@ -52,10 +45,9 @@ class FirstScreen extends StatelessWidget {
               ..showSnackBar(SnackBar(
                 content: Text(
                   state.message ?? 'Error',
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 13.sp),
+                  style: Theme.of(context).textTheme.bodyText1.copyWith(
+                        color: Colors.black,
+                      ),
                 ),
                 behavior: SnackBarBehavior.floating,
                 backgroundColor: Pallete.GOLD_COLOR,

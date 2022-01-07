@@ -15,21 +15,20 @@ class TextWithValue extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          title,
+          title.toUpperCase(),
           style: TextStyle(
-              fontSize: 20.sp,
-              color: Pallete.GOLD_COLOR,
-              fontWeight: FontWeight.w600,
-              fontFamily: 'callofduty'),
+            fontSize: 20.sp,
+            color: Pallete.GOLD_COLOR,
+            fontWeight: FontWeight.w600,
+          ),
         ),
         Text(
           value,
-          style: TextStyle(
-            fontFamily: 'callofduty',
-            fontSize: 20.sp,
-            color: Pallete.GOLD_COLOR,
-            fontWeight: FontWeight.bold,
-          ),
+          style: Theme.of(context).textTheme.bodyText2.copyWith(
+                fontSize: 20.sp,
+                color: Pallete.GOLD_COLOR,
+                fontWeight: FontWeight.bold,
+              ),
         )
       ],
     );

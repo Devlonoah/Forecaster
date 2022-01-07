@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:stream_tutorial_dec_2020/constants.dart';
+import 'package:stream_tutorial_dec_2020/theme.dart';
 
 import 'blocs/weathercubit/weather_cubit.dart';
 import 'di.dart';
@@ -41,11 +42,9 @@ class _MyAppState extends State<MyApp> {
         debugShowMaterialGrid: false,
         title: 'Prewer',
         theme: ThemeData.light().copyWith(
-          primaryColor: Colors.black,
-          scaffoldBackgroundColor: Pallete.mainColor,
-          accentColor: Colors.red,
-          buttonColor: Colors.red,
-        ),
+            primaryColor: Colors.black,
+            scaffoldBackgroundColor: Pallete.mainColor,
+            textTheme: appTheme),
         home: ScreenUtilInit(
           builder: () => FirstScreen(),
         ),

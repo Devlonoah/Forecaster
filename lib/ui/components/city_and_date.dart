@@ -5,7 +5,7 @@ import 'package:intl/intl.dart';
 import '../../constants.dart';
 import '../../model/weather_response.dart';
 
-Column cityAndDate(WeatherResponse data) {
+Column cityAndDate(WeatherResponse data, BuildContext context) {
   String textFormat(String text) {
     if (text.length >= 14) {
       return text.substring(0, text.length) + "...";
@@ -22,27 +22,21 @@ Column cityAndDate(WeatherResponse data) {
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       Text(
-        // textFormat(data.name + 'LAgos').toString(),
-
-        data.name,
+        data.name.toUpperCase(),
         maxLines: 2,
         overflow: TextOverflow.ellipsis,
-        style: TextStyle(
-          fontFamily: 'callofduty',
-          fontSize: 40.sp,
-          color: Pallete.textColor1,
-          fontWeight: FontWeight.bold,
-        ),
+        style: Theme.of(context)
+            .textTheme
+            .headline4
+            .copyWith(fontWeight: FontWeight.bold),
       ),
       addVerticalSpace(10),
       Text(
         currentDate,
-        style: TextStyle(
-          fontFamily: 'callofduty',
-          fontSize: 17.sp,
-          color: Pallete.textColor2,
-          fontWeight: FontWeight.w300,
-        ),
+        style: Theme.of(context)
+            .textTheme
+            .headline6
+            .copyWith(color: Pallete.GOLD_COLOR),
       ),
     ],
   );

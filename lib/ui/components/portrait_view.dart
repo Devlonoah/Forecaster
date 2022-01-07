@@ -55,9 +55,9 @@ Widget buildPortrait({WeatherState state, BuildContext context}) {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          cityAndDate(_data),
-          tempAndCoordAndDescription(data: _data),
-          weatherInfoDetails(_data)
+          cityAndDate(_data, context),
+          tempAndCoordAndDescription(data: _data, context: context),
+          weatherInfoDetails(_data, context)
         ],
       ),
     );

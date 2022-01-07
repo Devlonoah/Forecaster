@@ -5,7 +5,7 @@ import '../../constants.dart';
 import '../../model/weather_response.dart';
 import 'text_with_value.dart';
 
-Column weatherInfoDetails(WeatherResponse data) {
+Column weatherInfoDetails(WeatherResponse data, BuildContext context) {
   final dateFormat = DateFormat('hh:mm:ss');
   var sunriseDate =
       DateTime.fromMillisecondsSinceEpoch(data.sys.sunrise * 1000);
