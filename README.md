@@ -1,5 +1,7 @@
 # Weather App
 A simple  weather app
 
-Rxdart
-bloc
+Geolocation
+REST
+CACHING [Future feature]
+
