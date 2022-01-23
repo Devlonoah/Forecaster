@@ -16,10 +16,10 @@ class Main {
   int humidity;
 
   factory Main.fromJson(Map<String, dynamic> json) => Main(
-        temp: ((json["temp"].toDouble()) * (1 / 8)) + 32,
+        temp: json["temp"].toDouble() ?? 0.0,
         feelsLike: json["feels_like"].toDouble(),
-        tempMin: (json["temp_min"].toDouble() * (1 / 8)) + 32,
-        tempMax: (json["temp_max"].toDouble() * (1 / 8)) + 32,
+        tempMin: json["temp_min"].toDouble() ?? 0.0,
+        tempMax: json["temp_max"].toDouble() ?? 0.0,
         pressure: json["pressure"],
         humidity: json["humidity"],
       );

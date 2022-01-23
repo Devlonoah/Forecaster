@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/src/provider.dart';
 
 import '../../blocs/weathercubit/weather_cubit.dart';
@@ -11,7 +10,6 @@ import 'tem_and_coord_and_description.dart';
 import 'weather_info_details.dart';
 
 Widget buildPortrait({WeatherState state, BuildContext context}) {
-  var mediaqSize = MediaQuery.of(context).size;
   if (state is WeatherLoadFailure) {
     return Center(
       child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
