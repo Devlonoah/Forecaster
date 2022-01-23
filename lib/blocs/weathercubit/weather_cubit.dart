@@ -17,14 +17,12 @@ class WeatherCubit extends Cubit<WeatherState> {
   void fetchWeatherDataForCurrentLocation() async {
     emit(WeatherLoadInProgress());
 
-    // _connectionStateBloc.fecthConnectionState();
-
     try {
       final _result = await _weatherRepository.fetchWeatherData();
 
       emit(WeatherLoadSuccessful(_result));
     } catch (e) {
-      emit(WeatherLoadFailure('Check your connection'));
+      emit(WeatherLoadFailure('error occured'));
     }
   }
 }

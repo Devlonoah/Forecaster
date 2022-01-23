@@ -12,7 +12,7 @@ class WeatherRepository {
     // var positionData =
 
     Position position = await _locationProvider.fetchLocation();
-
+    print(position);
     WeatherResponse data = await _weatherApiCall(position);
     print('repo side:$data');
 
